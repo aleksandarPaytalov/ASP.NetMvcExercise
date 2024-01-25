@@ -1,4 +1,5 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿using System.ComponentModel;
+using System.ComponentModel.DataAnnotations;
 
 namespace BooksListEditor.Models
 {
@@ -10,6 +11,8 @@ namespace BooksListEditor.Models
         [Required] 
         public string Name { get; set; } = null!;
 
+        [DisplayName("Order Display")]
+        [Range(1, 50, ErrorMessage = "Order Display must be between 1 and 50")]
         public int Order { get; set; }
 
         public DateTime CreatedDateTime { get; set; } = DateTime.Now;
